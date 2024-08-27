@@ -1,0 +1,1106 @@
+19:28:47 **** Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:11: warning: "/*" within comment [-Wcomment]
+  116 |           /*char msg[50];
+      |            
+../Core/Src/main.c: In function 'CDC_Receive_FS':
+../Core/Src/main.c:138:30: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  138 |                   if (strcmp(Buf,"LED"))
+      |                              ^~~
+      |                              |
+      |                              uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   36 | int      strcmp (const char *, const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:137:23: warning: unused variable 'ret' [-Wunused-variable]
+  137 |                   int ret;
+      |                       ^~~
+../Core/Src/main.c:151:11: warning: no return statement in function returning non-void [-Wreturn-type]
+  151 |           }
+      |           ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:74:18: warning: unused variable 'value' [-Wunused-variable]
+   74 |         uint32_t value=0;
+      |                  ^~~~~
+At top level:
+../Core/Src/main.c:135:18: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+  135 |           int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |                  ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:32:46 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:11: warning: "/*" within comment [-Wcomment]
+  116 |           /*char msg[50];
+      |            
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:268:30: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  268 |                   if (strcmp(Buf,"LED"))
+      |                              ^~~
+      |                              |
+      |                              uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:28,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:30,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   36 | int      strcmp (const char *, const char *);
+      |                  ^~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:267:7: warning: unused variable 'ret' [-Wunused-variable]
+  267 |   int ret;
+      |       ^~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:35:11 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:264:9: error: 'str' undeclared (first use in this function)
+  264 |         str[4] = "LED";
+      |         ^~~
+../USB_DEVICE/App/usbd_cdc_if.c:264:9: note: each undeclared identifier is reported only once for each function it appears in
+../USB_DEVICE/App/usbd_cdc_if.c:268:14: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  268 |   if (strcmp(Buf,str))
+      |              ^~~
+      |              |
+      |              uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:28,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:30,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   36 | int      strcmp (const char *, const char *);
+      |                  ^~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:35:28 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:268:14: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  268 |   if (strcmp(Buf,str))
+      |              ^~~
+      |              |
+      |              uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:28,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:30,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   36 | int      strcmp (const char *, const char *);
+      |                  ^~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:37:06 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:265:24: error: invalid initializer
+  265 |         char data[4] = *Buf;
+      |                        ^
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:37:54 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:265:29: error: invalid initializer
+  265 |     unsigned char data[4] = *Buf;
+      |                             ^
+../USB_DEVICE/App/usbd_cdc_if.c:268:14: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  268 |   if (strcmp(data,str))
+      |              ^~~~
+      |              |
+      |              unsigned char *
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:28,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:30,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:18: note: expected 'const char *' but argument is of type 'unsigned char *'
+   36 | int      strcmp (const char *, const char *);
+      |                  ^~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:268:19: warning: pointer targets in passing argument 2 of 'strcmp' differ in signedness [-Wpointer-sign]
+  268 |   if (strcmp(data,str))
+      |                   ^~~
+      |                   |
+      |                   unsigned char *
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:28,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:30,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:32: note: expected 'const char *' but argument is of type 'unsigned char *'
+   36 | int      strcmp (const char *, const char *);
+      |                                ^~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:38:30 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:265:29: error: invalid initializer
+  265 |     unsigned char data[4] = Buf;
+      |                             ^~~
+../USB_DEVICE/App/usbd_cdc_if.c:268:14: warning: pointer targets in passing argument 1 of 'strcmp' differ in signedness [-Wpointer-sign]
+  268 |   if (strcmp(data,str))
+      |              ^~~~
+      |              |
+      |              unsigned char *
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:28,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:30,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:18: note: expected 'const char *' but argument is of type 'unsigned char *'
+   36 | int      strcmp (const char *, const char *);
+      |                  ^~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:268:19: warning: pointer targets in passing argument 2 of 'strcmp' differ in signedness [-Wpointer-sign]
+  268 |   if (strcmp(data,str))
+      |                   ^~~
+      |                   |
+      |                   unsigned char *
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:28,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:28,
+                 from ../USB_DEVICE/App/usbd_cdc_if.h:30,
+                 from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:36:32: note: expected 'const char *' but argument is of type 'unsigned char *'
+   36 | int      strcmp (const char *, const char *);
+      |                                ^~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:29:59 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:53:00 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:11: warning: "/*" within comment [-Wcomment]
+  116 |           /*char msg[50];
+      |            
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:59:16 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:02:53 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:04:50 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c:299:9: warning: 'CDC_Transmit_FS' defined but not used [-Wunused-function]
+  299 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
+      |         ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:11: warning: "/*" within comment [-Wcomment]
+  116 |           /*char msg[50];
+      |            
+In file included from ../Core/Src/main.c:22:
+../Core/Src/main.c: At top level:
+../USB_DEVICE/App/usbd_cdc_if.h:108:16: warning: 'CDC_Transmit_FS' declared 'static' but never defined [-Wunused-function]
+  108 | static uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                ^~~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' declared 'static' but never defined [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usb_device.c:27:
+../USB_DEVICE/App/usbd_cdc_if.h:108:16: warning: 'CDC_Transmit_FS' declared 'static' but never defined [-Wunused-function]
+  108 | static uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                ^~~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' declared 'static' but never defined [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34236	    260	   9916	  44412	   ad7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+21:11:27 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c:127:15: error: static declaration of 'CDC_Receive_FS' follows non-static declaration
+  127 | static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:8: note: previous declaration of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |        ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:12:41 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../USB_DEVICE/App/usb_device.c:27:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' declared 'static' but never defined [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' declared 'static' but never defined [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+      |               ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34236	    260	   9916	  44412	   ad7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+21:14:39 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.h:131:35: error: 'hUsbDeviceFS' undeclared (first use in this function)
+  131 |             USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
+      |                                   ^~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.h:131:35: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.h:131:35: error: 'hUsbDeviceFS' undeclared (first use in this function)
+  131 |             USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
+      |                                   ^~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.h:131:35: note: each undeclared identifier is reported only once for each function it appears in
+../USB_DEVICE/App/usbd_cdc_if.c: At top level:
+../USB_DEVICE/App/usbd_cdc_if.c:261:15: error: redefinition of 'CDC_Receive_FS'
+  261 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: note: previous definition of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:261:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+  261 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+In file included from ../USB_DEVICE/App/usb_device.c:27:
+../USB_DEVICE/App/usbd_cdc_if.h: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.h:131:35: error: 'hUsbDeviceFS' undeclared (first use in this function)
+  131 |             USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
+      |                                   ^~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.h:131:35: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usb_device.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:15:17 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../USB_DEVICE/App/usb_device.c:27:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:261:15: error: redefinition of 'CDC_Receive_FS'
+  261 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: note: previous definition of 'CDC_Receive_FS' with type 'int8_t(uint8_t *, uint32_t *)' {aka 'signed char(unsigned char *, long unsigned int *)'}
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:261:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+  261 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from ../Core/Src/main.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:111:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+  111 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:22:24 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../USB_DEVICE/App/usb_device.c:27:
+../USB_DEVICE/App/usbd_cdc_if.h:113:1: error: expected identifier or '(' before '}' token
+  113 | }
+      | ^
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:113:1: error: expected identifier or '(' before '}' token
+  113 | }
+      | ^
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usb_device.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+In file included from ../Core/Src/main.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:113:1: error: expected identifier or '(' before '}' token
+  113 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:22:36 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34236	    260	   9916	  44412	   ad7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+21:44:13 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'CDC_Receive_FS':
+../Core/Src/main.c:79:1: warning: no return statement in function returning non-void [-Wreturn-type]
+   79 | }
+      | ^
+At top level:
+../Core/Src/main.c:59:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+   59 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34084	    260	   9916	  44260	   ace4	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+21:45:06 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:59:15: warning: 'CDC_Receive_FS' defined but not used [-Wunused-function]
+   59 | static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
+      |               ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34084	    260	   9916	  44260	   ace4	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+21:46:41 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34236	    260	   9916	  44412	   ad7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+21:48:02 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34236	    260	   9916	  44412	   ad7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+22:17:47 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34236	    260	   9916	  44412	   ad7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+22:22:14 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34236	    260	   9916	  44412	   ad7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+00:54:37 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c:25:8: warning: type defaults to 'int' in declaration of 'flag' [-Wimplicit-int]
+   25 | extern flag;
+      |        ^~~~
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:269:9: error: assignment to expression with array type
+  269 |    data = Buf[0];
+      |         ^
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:14: error: 'flag' undeclared (first use in this function)
+  126 |           if(flag == 1)
+      |              ^~~~
+../Core/Src/main.c:126:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+00:55:00 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:269:9: error: assignment to expression with array type
+  269 |    data = Buf[0];
+      |         ^
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:14: error: 'flag' undeclared (first use in this function)
+  126 |           if(flag == 1)
+      |              ^~~~
+../Core/Src/main.c:126:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+00:55:30 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:269:9: error: assignment to expression with array type
+  269 |    data = Buf[0];
+      |         ^
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:26:1: warning: data definition has no type or storage class
+   26 | flag = 0;
+      | ^~~~
+../Core/Src/main.c:26:1: warning: type defaults to 'int' in declaration of 'flag' [-Wimplicit-int]
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+00:56:30 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:269:9: error: assignment to expression with array type
+  269 |    data = Buf[0];
+      |         ^
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+00:57:17 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `data'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+00:58:26 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `data'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:00:18 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `data'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:01:27 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34120	    260	   9916	  44296	   ad08	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+01:02:26 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `data'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:03:52 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34120	    260	   9916	  44296	   ad08	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+01:04:33 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34120	    260	   9916	  44296	   ad08	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+01:23:28 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `data'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:24:41 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `usbd_ch'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:25:46 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34120	    260	   9916	  44296	   ad08	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+01:29:16 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `usbd_ch'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:30:04 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `usbd_ch'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:31:55 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `usbd_ch'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:35:01 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:14: error: 'flag' undeclared (first use in this function)
+  126 |           if(flag == 1)
+      |              ^~~~
+../Core/Src/main.c:126:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:37:10 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./Core/Src/main.o: in function `main':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../Core/Src/main.c:126: undefined reference to `flag'
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `usbd_ch'
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `flag'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:39:53 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o: in function `CDC_Receive_FS':
+/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:277: undefined reference to `usbd_ch'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:21:27 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34112	    260	   9916	  44288	   ad00	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+19:13:24 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:269:26: warning: passing argument 2 of 'CDC_Transmit_FS' makes integer from pointer without a cast [-Wint-conversion]
+  269 |     CDC_Transmit_FS(Buf, Len);
+      |                          ^~~
+      |                          |
+      |                          uint32_t * {aka long unsigned int *}
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:108:48: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+  108 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                                       ~~~~~~~~~^~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34492	    260	   9916	  44668	   ae7c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+19:13:46 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34496	    260	   9916	  44672	   ae80	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+19:14:04 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34496	    260	   9916	  44672	   ae80	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+16:41:24 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34496	    260	   9916	  44672	   ae80	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+16:42:00 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34496	    260	   9916	  44672	   ae80	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+23:52:45 **** Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  34468	    260	   9916	  44644	   ae64	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+23:53:22 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  34468	    260	   9916	  44644	   ae64	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+11:56:56 **** Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../USB_DEVICE/App/usbd_desc.c:227:1: warning: "/*" within comment [-Wcomment]
+  227 | /** USB lang identifier descriptor. */
+      |  
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:288:42: error: 'hadc1' undeclared (first use in this function)
+  288 |                           HAL_ADC_Start(&hadc1);
+      |                                          ^~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:288:42: note: each undeclared identifier is reported only once for each function it appears in
+../USB_DEVICE/App/usbd_cdc_if.c:292:48: warning: passing argument 2 of 'CDC_Transmit_FS' makes integer from pointer without a cast [-Wint-conversion]
+  292 |                           CDC_Transmit_FS(Buf, Len);
+      |                                                ^~~
+      |                                                |
+      |                                                uint32_t * {aka long unsigned int *}
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:108:48: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+  108 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                                       ~~~~~~~~~^~~
+../USB_DEVICE/App/usbd_cdc_if.c:276:18: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+  276 |         uint32_t value=0;
+      |                  ^~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:57:22 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:288:42: error: 'hadc1' undeclared (first use in this function)
+  288 |                           HAL_ADC_Start(&hadc1);
+      |                                          ^~~~~
+../USB_DEVICE/App/usbd_cdc_if.c:288:42: note: each undeclared identifier is reported only once for each function it appears in
+../USB_DEVICE/App/usbd_cdc_if.c:292:48: warning: passing argument 2 of 'CDC_Transmit_FS' makes integer from pointer without a cast [-Wint-conversion]
+  292 |                           CDC_Transmit_FS(Buf, Len);
+      |                                                ^~~
+      |                                                |
+      |                                                uint32_t * {aka long unsigned int *}
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:108:48: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+  108 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                                       ~~~~~~~~~^~~
+../USB_DEVICE/App/usbd_cdc_if.c:276:18: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+  276 |         uint32_t value=0;
+      |                  ^~~~~
+make: *** [USB_DEVICE/App/subdir.mk:25: USB_DEVICE/App/usbd_cdc_if.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:58:50 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:292:48: warning: passing argument 2 of 'CDC_Transmit_FS' makes integer from pointer without a cast [-Wint-conversion]
+  292 |                           CDC_Transmit_FS(Buf, Len);
+      |                                                ^~~
+      |                                                |
+      |                                                uint32_t * {aka long unsigned int *}
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:108:48: note: expected 'uint16_t' {aka 'short unsigned int'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
+  108 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                                       ~~~~~~~~~^~~
+../USB_DEVICE/App/usbd_cdc_if.c:276:18: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+  276 |         uint32_t value=0;
+      |                  ^~~~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:97: multiple definition of `hadc1'; ./Core/Src/main.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../Core/Src/main.c:45: first defined here
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:59:49 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:276:18: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+  276 |         uint32_t value=0;
+      |                  ^~~~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:97: multiple definition of `hadc1'; ./Core/Src/main.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../Core/Src/main.c:45: first defined here
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:00:20 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:276:18: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+  276 |         uint32_t value;
+      |                  ^~~~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:97: multiple definition of `hadc1'; ./Core/Src/main.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../Core/Src/main.c:45: first defined here
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:01:07 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: ./USB_DEVICE/App/usbd_cdc_if.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../USB_DEVICE/App/usbd_cdc_if.c:97: multiple definition of `hadc1'; ./Core/Src/main.o:/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/Debug/../Core/Src/main.c:45: first defined here
+collect2: error: ld returned 1 exit status
+make: *** [makefile:68: USBd 0.2_CDC_libuse.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:01:31 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  35452	    260	   9916	  45628	   b23c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+12:01:42 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35452	    260	   9916	  45628	   b23c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+12:25:14 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  35452	    260	   9916	  45628	   b23c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+12:25:28 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35452	    260	   9916	  45628	   b23c	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+12:32:54 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:293:43: warning: passing argument 1 of 'CDC_Transmit_FS' makes pointer from integer without a cast [-Wint-conversion]
+  293 |                           CDC_Transmit_FS(value, *Len);
+      |                                           ^~~~~
+      |                                           |
+      |                                           uint32_t {aka long unsigned int}
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:108:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint32_t' {aka 'long unsigned int'}
+  108 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  35456	    260	   9916	  45632	   b240	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+12:33:29 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+../USB_DEVICE/App/usbd_cdc_if.c: In function 'CDC_Receive_FS':
+../USB_DEVICE/App/usbd_cdc_if.c:293:43: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  293 |                           CDC_Transmit_FS((uint8_t)&value, *Len);
+      |                                           ^
+../USB_DEVICE/App/usbd_cdc_if.c:293:43: warning: passing argument 1 of 'CDC_Transmit_FS' makes pointer from integer without a cast [-Wint-conversion]
+  293 |                           CDC_Transmit_FS((uint8_t)&value, *Len);
+      |                                           ^~~~~~~~~~~~~~~
+      |                                           |
+      |                                           unsigned char
+In file included from ../USB_DEVICE/App/usbd_cdc_if.c:22:
+../USB_DEVICE/App/usbd_cdc_if.h:108:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'unsigned char'
+  108 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  35456	    260	   9916	  45632	   b240	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+12:33:47 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc -o "USBd 0.2_CDC_libuse.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBd 0.2_CDC_libuse.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USBd 0.2_CDC_libuse.elf
+ 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+arm-none-eabi-objdump -h -S  USBd\ 0.2_CDC_libuse.elf  > "USBd 0.2_CDC_libuse.list"
+   text	   data	    bss	    dec	    hex	filename
+  35456	    260	   9916	  45632	   b240	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 
+Finished building: USBd 0.2_CDC_libuse.list
+ 
+12:33:59 **** Incremental Build of configuration Debug for project USBd 0.2_CDC_libuse ****
+make -j8 all 
+arm-none-eabi-size   USBd\ 0.2_CDC_libuse.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35456	    260	   9916	  45632	   b240	USBd 0.2_CDC_libuse.elf
+Finished building: default.size.stdout
+ 

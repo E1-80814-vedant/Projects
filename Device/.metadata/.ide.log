@@ -1,0 +1,84 @@
+2024-01-12 00:00:19,438 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,520x489,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-01-12 00:10:09,998 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,520x532,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-01-12 00:15:28,885 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-01-12 00:15:28,951 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-01-12 00:15:32,818 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-01-12 00:20:24,792 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,792 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,792 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,794 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,794 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,794 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,840 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,840 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,840 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,860 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,860 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:20:24,861 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:23:56,411 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:23:56,411 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:23:56,411 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:50:40,879 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 488871752 Bytes (851443712)
+2024-01-12 00:50:43,613 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 530814792 Bytes (851443712)
+2024-01-12 00:50:50,709 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 538139096 Bytes (851443712)
+2024-01-12 00:50:50,928 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2024-01-12 00:50:50,928 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-01-12 00:50:50,928 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-01-12 00:50:50,928 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2024-01-12 00:50:50,928 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-01-12 00:50:50,928 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-01-12 00:50:50,929 [INFO] CodeGenerator:799 - code generatio: config db path: /opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.common.mx_6.9.2.202309101412//db/
+2024-01-12 00:50:50,942 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:50:50,943 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:50:50,943 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2024-01-12 00:50:51,133 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/MXTmpFiles/license.tmp_save
+2024-01-12 00:50:51,238 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/MXTmpFiles/license.tmp
+2024-01-12 00:50:51,274 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/MXTmpFiles/gpio.tmp_save
+2024-01-12 00:50:51,339 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/MXTmpFiles/gpio.tmp
+2024-01-12 00:50:51,500 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2024-01-12 00:50:51,541 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_vars.tmp_save
+2024-01-12 00:50:51,646 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_vars.tmp
+2024-01-12 00:50:51,648 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_inc.tmp_save
+2024-01-12 00:50:51,703 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_inc.tmp
+2024-01-12 00:50:51,705 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_HalInit.tmp_save
+2024-01-12 00:50:51,787 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_HalInit.tmp
+2024-01-12 00:50:51,789 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_Msp.tmp_save
+2024-01-12 00:50:51,870 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/MXTmpFiles/usb_otg_fs_Msp.tmp
+2024-01-12 00:50:51,947 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-01-12 00:50:51,962 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-01-12 00:50:52,024 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usb_device.c_save
+2024-01-12 00:50:52,122 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usb_device.c
+2024-01-12 00:50:52,146 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usb_device.h_save
+2024-01-12 00:50:52,204 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usb_device.h
+2024-01-12 00:50:52,207 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/Target/usbd_conf.h_save
+2024-01-12 00:50:52,265 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/Target/usbd_conf.h
+2024-01-12 00:50:52,274 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/Target/usbd_conf.c_save
+2024-01-12 00:50:52,352 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/Target/usbd_conf.c
+2024-01-12 00:50:52,355 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_desc.h_save
+2024-01-12 00:50:52,413 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_desc.h
+2024-01-12 00:50:52,416 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_desc.c_save
+2024-01-12 00:50:52,474 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_desc.c
+2024-01-12 00:50:52,485 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_cdc_if.h_save
+2024-01-12 00:50:52,545 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_cdc_if.h
+2024-01-12 00:50:52,564 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_cdc_if.c_save
+2024-01-12 00:50:52,625 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/USB_DEVICE/App/usbd_cdc_if.c
+2024-01-12 00:50:52,665 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/Core/Src/stm32f4xx_it.c_save
+2024-01-12 00:50:52,859 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/Core/Src/stm32f4xx_it.c
+2024-01-12 00:50:52,860 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/Core/Inc/stm32f4xx_it.h_save
+2024-01-12 00:50:52,916 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/Core/Inc/stm32f4xx_it.h
+2024-01-12 00:50:52,949 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/Core/Src/stm32f4xx_hal_msp.c_save
+2024-01-12 00:50:53,036 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/Core/Src/stm32f4xx_hal_msp.c
+2024-01-12 00:50:53,037 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/MXTmpFiles/system.tmp_save
+2024-01-12 00:50:53,096 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/MXTmpFiles/system.tmp
+2024-01-12 00:50:53,100 [INFO] CodeEngine:311 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/Core/Inc/stm32f4xx_hal_conf.h_save
+2024-01-12 00:50:53,163 [INFO] CodeEngine:335 - Generated code: /home/sunbeam/Project/USBc/USBd/Core/Inc/stm32f4xx_hal_conf.h
+2024-01-12 00:50:53,189 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/Core/Inc/main.h_save
+2024-01-12 00:50:53,261 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/Core/Inc/main.h
+2024-01-12 00:50:53,263 [INFO] CodeEngine:255 - oldGeneratedFile, /home/sunbeam/Project/USBc/USBd/Core/Src/main.c_save
+2024-01-12 00:50:53,415 [INFO] CodeEngine:279 - Generated code: /home/sunbeam/Project/USBc/USBd/Core/Src/main.c
+2024-01-12 00:50:54,357 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 499mS.
+2024-01-12 00:50:54,366 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2024-01-12 00:50:54,582 [INFO] ConfigFileManager:1457 - The Die is : DIE413
+2024-01-12 00:50:56,224 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1859mS.
+2024-01-12 00:50:56,225 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 1mS.
+2024-01-12 00:50:56,226 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.

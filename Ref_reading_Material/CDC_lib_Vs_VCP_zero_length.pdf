@@ -1,0 +1,146 @@
+
+
+									CDC libusb	Vs	USB VCP Zero len packet 
+										(For communication)
+
+
+The choice between using the CDC (Communication Device Class) via libusb and the USB VCP (Virtual Communication Port) 
+with Zero Packet Length approach depends on specific requirements and use cases. 
+Both approaches have their advantages and limitations, and the optimal choice may vary depending on the application 
+and system constraints.
+
+
+CDC via libusb:
+
+Flexibility: 
+CDC is a standard USB class that provides a more generic communication interface. 
+It is not limited to a specific type of communication and can be used for various purposes, 
+such as serial communication, networking, or custom protocols.
+
+	Libusb: Using libusb allows for more direct and low-level control over USB communication. 
+	It is a library that enables applications to communicate with USB devices without the need for specific drivers.
+
+
+#### USB VCP with Zero Packet Length:
+
+Simplicity: 
+The USB VCP approach with Zero Packet Length is often associated with virtual COM ports, 
+making it more straightforward for serial communication. 
+This can be advantageous when the primary goal is to establish a simple, standard serial link between devices.
+
+	Ease of Use: Virtual COM ports are widely supported by operating systems, and many applications are designed to work 
+	seamlessly with COM ports. This can simplify the integration process for certain applications.
+
+
+#### Choosing between these approaches depends on factors such as:
+
+Application Requirements: 
+If the application requires a more generic communication interface or involves non-standard protocols, 
+CDC via libusb might be a better fit.
+
+	System Constraints: Consider the resources available on the target system. If there are limitations in terms of processing power, memory, or available libraries, one approach might be more suitable than the other.
+
+	Ease of Integration: If simplicity and ease of integration are critical, the USB VCP approach with Zero Packet Length may be preferred, especially if the application primarily involves serial communication.
+
+	Operating System Support: Ensure that the chosen approach is well-supported across the target operating systems. Some platforms may have better support for specific USB classes or libraries.
+
+
+######
+There is no one-size-fits-all answer, and the choice between CDC via libusb and USB VCP with Zero Packet Length depends on 
+the specific requirements and constraints of the given project. 
+It's important to carefully evaluate the pros and cons of each approach in the context of the intended application.
+
+___________________________________________________________________________________________________________________________________
+
+					##### Comparison for CDC libusb 	and 	USB VCP Zero len Packet	#######
+
+
+CDC via libusb:
+Advantages:
+
+Flexibility: 
+CDC is a versatile USB class that can support various types of communication protocols, not limited to serial communication. 
+This flexibility makes it suitable for a wide range of applications.
+
+Libusb Control: 
+libusb provides low-level control over USB communication, allowing developers to have direct access to USB features 
+without relying on platform-specific drivers.
+
+Platform Independence: 
+Since libusb is a cross-platform library, applications developed using CDC and libusb can run on different operating systems 
+without major modifications.
+
+Custom Protocols: 
+CDC can be used to implement custom communication protocols, making it suitable for applications with specific requirements 
+beyond standard serial communication.
+
+
+
+
+Disadvantages:
+
+Complexity: 
+Working with libusb can be more complex than using higher-level APIs or virtual COM ports. 
+Developers need to handle lower-level USB communication details, which may be challenging for beginners.
+
+Driver Development: 
+While libusb eliminates the need for platform-specific drivers, developers may still need to implement custom drivers 
+for some operating systems.
+
+
+
+						______________________________________________________________________________
+
+
+
+USB VCP with Zero Packet Length:
+Advantages:
+
+Simplicity: 
+USB VCP, especially when used as a virtual COM port with Zero Packet Length, 
+provides a simple and standardized way for serial communication. It is widely supported by operating systems and applications.
+
+Ease of Integration: 
+Virtual COM ports are recognized by many applications that work with serial communication, simplifying the integration process.
+
+Operating System Support: 
+USB VCP is well-supported by default drivers in most operating systems, reducing the need for custom driver development.
+
+Serial Communication Focus: 
+If the primary requirement is serial communication, USB VCP with Zero Packet Length provides a straightforward solution 
+without the need for extensive protocol handling.
+
+
+
+Disadvantages:
+
+Limited to Serial Communication: 
+USB VCP is primarily designed for serial communication. 
+If the application requires a different type of communication or custom protocols, it may not be the most suitable choice.
+
+Less Flexibility: 
+USB VCP may not be as flexible as CDC in handling diverse communication requirements.
+
+Dependence on COM Port: 
+Some systems may have limitations or conflicts related to the availability of COM ports, 
+potentially causing issues in certain environments.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

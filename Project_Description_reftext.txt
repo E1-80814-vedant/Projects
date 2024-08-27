@@ -1,0 +1,38 @@
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q: What have you done in your project ? 
+---- Our "INTRO" to the Project -----
+
+ - Project Title : Prototyping a Linux USB device Driver using a Microcontroller configured USB deivce.
+ 	Our Project Involves 4 stages of overall and those can be sperately refered as :
+
+	1. The Client Side : We have configured a microcontroler as an USB device with our specific identifications 
+						 and provided periferal functionalities.
+	
+	2. The Host Side   : We have provided a usb driver module 
+						 which is to be inserted to the kernel in a .ko ie. kernel module file format.
+						 compiled form an .c src file.
+
+	3. The Test Case   : we have implemented a Luminance Responsive functionality over our USB device 
+						 to demonstrate the "driver - device" interactions rather associative connectivity
+						 which reflect in the kerner msg logs
+
+	4. The Make file   : The file containing the instructions to build the .ko modules form the targeted .c src file
+							
+							- Extra_info : Make-file 
+											A GNU standard which is a UNIX utility provided for automated compilation 
+											of heavy files like .ko modules, Kernel srcs, and even softwares. 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Below this you can individually describe more on your respective Part Involed in the Project. 
+
+- Details of Each code files : 
+	
+	1. The Client Side : We have configured a microcontroler as an USB device with our specific identifications 
+	2. The Host Side   : We have provided a usb driver module 
+	3. The Test Case   : we have implemented a Luminance Responsive functionality over our USB device 
+	4. The Make file   : The file containing the instructions to build the .ko modules form the targeted .c src file
+									
+

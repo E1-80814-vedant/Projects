@@ -1,0 +1,1 @@
+cmd_/home/sunbeam/Project/Project_PG-DESD/Device/Usb_host/Module.symvers :=  sed 's/ko$$/o/'  /home/sunbeam/Project/Project_PG-DESD/Device/Usb_host/modules.order | scripts/mod/modpost -m -a    -o /home/sunbeam/Project/Project_PG-DESD/Device/Usb_host/Module.symvers -e -i Module.symvers -T - 

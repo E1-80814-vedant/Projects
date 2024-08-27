@@ -1,0 +1,51 @@
+https://wiki.st.com/stm32mcu/wiki/Introduction_to_USB_with_STM32#Getting_started_with_STM32_and_USB
+
+TO READ : 
+
+1.CDC class :-
+	
+	The CDC (Communication Device Class) is a standard USB (Universal Serial Bus) device class specification that defines how certain types of communication devices should behave when connected to a USB host. The CDC class is particularly relevant for devices that perform serial communication, such as modems, network adapters, and certain types of embedded systems.
+
+Here are some key points about the CDC class:
+
+Communication Model:
+
+The CDC class enables devices to establish a virtual serial port connection with a USB host.
+It defines a communication model where data is sent and received in a serial fashion, similar to how data is transmitted over a traditional RS-232 serial port.
+Usage Scenarios:
+
+CDC is commonly used for devices that require serial communication over USB, such as USB-to-serial adapters, modems, and certain types of embedded systems that need to establish a serial connection with a host computer.
+Functionality:
+
+CDC devices typically present themselves to the USB host as a virtual COM port.
+They may support features like data framing, flow control, and baud rate settings to provide flexibility in communication.
+Abstract Control Model (ACM):
+
+Within the CDC class, there is a sub-class known as the Abstract Control Model (ACM), which extends the capabilities of the basic CDC class.
+The ACM allows for additional features like the ability to manage the serial port settings and control certain aspects of the communication.
+Device Descriptors:
+
+USB devices that comply with the CDC class have specific descriptors in their USB descriptors that identify them as CDC devices. These descriptors include information about the device's capabilities and supported communication parameters.
+USB CDC ACM Device Example:
+
+Here's a simplified example of a USB CDC ACM device descriptor:
+plaintext
+Copy code
+Device Descriptor:
+  bDeviceClass         0x02
+  bDeviceSubClass      0x02
+  bDeviceProtocol      0x01
+USB Communication Classes:
+
+The CDC class is part of a broader set of USB communication classes that define standard protocols for various types of communication devices. Other classes include the Audio Class, Video Class, and Human Interface Device (HID) Class.
+Development:
+
+When developing a USB device that adheres to the CDC class, developers need to implement the necessary communication functions, handle USB requests, and manage the device descriptors according to the CDC specification.
+By adhering to the CDC class specification, USB devices can ensure compatibility with a wide range of operating systems that have built-in support for CDC devices, including Windows, macOS, and Linux. This makes it easier for users to connect and use CDC-class devices without requiring custom drivers.
+
+
+
+
+
+
+ 

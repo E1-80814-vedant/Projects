@@ -1,0 +1,45 @@
+!SESSION 2024-02-16 13:29:13.651 -----------------------------------------------
+eclipse.buildId=Version 1.13.2
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-16 13:29:44.198
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-16 13:29:44.201
+!MESSAGE Log4j2 initialized with config file /home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-16 13:30:14.422
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-02-16 13:51:00.997 -----------------------------------------------
+eclipse.buildId=Version 1.13.2
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-16 13:51:40.322
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-16 13:51:40.324
+!MESSAGE Log4j2 initialized with config file /home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-16 13:52:03.169
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-02-16 13:52:34.570 -----------------------------------------------
+eclipse.buildId=Version 1.13.2
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -data /home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-16 13:52:48.732
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-16 13:52:48.735
+!MESSAGE Log4j2 initialized with config file /home/sunbeam/Project/Project_PG-DESD/Device/USBd 0.2_CDC_libuse/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-16 13:52:56.604
+!MESSAGE Started RMI Server, listening on port 41337

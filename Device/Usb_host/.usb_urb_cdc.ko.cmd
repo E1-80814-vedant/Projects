@@ -1,0 +1,1 @@
+cmd_/home/sunbeam/Project/Project_PG-DESD/Device/Usb_host/usb_urb_cdc.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/sunbeam/Project/Project_PG-DESD/Device/Usb_host/usb_urb_cdc.ko /home/sunbeam/Project/Project_PG-DESD/Device/Usb_host/usb_urb_cdc.o /home/sunbeam/Project/Project_PG-DESD/Device/Usb_host/usb_urb_cdc.mod.o;  true
